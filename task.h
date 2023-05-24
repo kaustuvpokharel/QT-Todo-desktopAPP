@@ -18,6 +18,8 @@ public:
     void setName(const QString name);
     QString name() const;
     bool isCompleted() const;
+public slots:
+    void rename();
 
 private:
     Ui::Task *ui;
