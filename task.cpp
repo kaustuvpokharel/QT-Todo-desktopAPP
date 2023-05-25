@@ -16,6 +16,7 @@ Task::Task(const QString& name, QWidget *parent) :
         }(name);
         emit removed(this);
     });
+    connect(ui->checkBox, &QCheckBox::toggled, this, &Task::checked);
 
 }
 
@@ -52,3 +53,10 @@ void Task::rename()
     }
 }
 
+void Task::checked(bool checked)
+{
+    QFont font(ui->checkBox->font());
+    font.setStrikeOut(checked);
+    ui->checkBox->setFont(font);
+    emit statusChanged(this);
+}

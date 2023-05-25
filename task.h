@@ -22,6 +22,9 @@ public slots:
     void rename();
 signals:
     void removed(Task* task);
+    void statusChanged(Task* task);
+private slots:
+    void checked(bool checked);
 
 private:
     Ui::Task *ui;
