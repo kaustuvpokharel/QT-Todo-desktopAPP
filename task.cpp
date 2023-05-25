@@ -9,6 +9,14 @@ Task::Task(const QString& name, QWidget *parent) :
     ui->setupUi(this);
     setName(name);
     connect(ui->editButton, &QPushButton::clicked, this, &Task::rename);
+    connect(ui->removeButton, &QPushButton::clicked, [this, name]{
+        qDebug()<<"Trying to remove" <<[](const QString& taskName)->QString
+        {
+            return "---------" + taskName.toUpper();
+        }(name);
+        emit removed(this);
+    });
+
 }
 
 Task::~Task()
